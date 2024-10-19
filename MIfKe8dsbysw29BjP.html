@@ -1,0 +1,95 @@
+<html><head><base href="https://aisy4le.music/">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aisey 4le - Duo Musicale</title>
+<style>
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #1c1c1c, #2a2a2a);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  }
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .spotify-button {
+    display: inline-block;
+    background-color: #1DB954;
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  .spotify-button:hover {
+    background-color: #1ED760;
+    transform: scale(1.05);
+  }
+  .logo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px;
+    background-color: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">A4</div>
+    <h1>Aisey 4le</h1>
+    <p>Ascoltaci porcodio che stiamo morendo di fame e non sappiamo più come tirare soldi!</p>
+    <a href="https://open.spotify.com/intl-it/artist/0HHYeJ458Hb48LsbzX2MEJ?si=lzdjncOxRhmZKBhov1TvYw" class="spotify-button" target="_blank">Ascoltaci su Spotify</a>
+  </div>
+
+  <script>
+    // Funzione per gestire il deep linking
+    function handleDeepLink() {
+      const params = new URLSearchParams(window.location.search);
+      const page = params.get('page');
+      const container = document.querySelector('.container');
+      
+      if (page === 'music') {
+        container.innerHTML = `
+          <div class="logo">A4</div>
+          <h1>La Nostra Musica</h1>
+          <p>Esplora il nostro catalogo musicale e lasciati trasportare dalle nostre melodie.</p>
+          <a href="https://open.spotify.com/intl-it/artist/0HHYeJ458Hb48LsbzX2MEJ?si=lzdjncOxRhmZKBhov1TvYw" class="spotify-button" target="_blank">Ascolta su Spotify</a>
+        `;
+      } else if (page === 'about') {
+        container.innerHTML = `
+          <div class="logo">A4</div>
+          <h1>Chi Siamo</h1>
+          <p>Aisey 4le è un duo musicale nato dalla passione per i suoni elettronici e le melodie accattivanti. La nostra missione è creare musica che emoziona e fa ballare.</p>
+          <a href="https://open.spotify.com/intl-it/artist/0HHYeJ458Hb48LsbzX2MEJ?si=lzdjncOxRhmZKBhov1TvYw" class="spotify-button" target="_blank">Scopri la nostra musica</a>
+        `;
+      }
+      // Se non c'è un parametro 'page' o non è riconosciuto, la pagina principale rimane invariata
+    }
+
+    // Gestisci il deep linking al caricamento della pagina
+    window.onload = handleDeepLink;
+  </script>
+</body></html>
